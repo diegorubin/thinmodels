@@ -7,8 +7,6 @@ gem 'rails', '4.2.0'
 gem 'sqlite3'
 
 # front-end
-gem 'sass-rails', '~> 5.0'
-gem 'bootstrap-sass', '~> 3.3.1'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'autoprefixer-rails'
@@ -19,10 +17,6 @@ gem 'jbuilder', '~> 2.0'
 # documentation
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# helpers for forms
-gem 'formtastic', '2.2.1'
-gem 'formtastic-bootstrap', '~> 3.0.0'
-
 group :development, :test do
   # disable asset pipeline logs
   gem 'quiet_assets'
@@ -32,7 +26,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 
   # development optimization
-  gem 'spring'
+  #gem 'spring'
 
   # code style
   gem 'rubocop'
@@ -45,6 +39,7 @@ group :development, :test do
   # bdd, tdd and unit tests
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'faker'
   gem 'guard'
   gem 'guard-cucumber'
   gem 'guard-rspec', require: false
