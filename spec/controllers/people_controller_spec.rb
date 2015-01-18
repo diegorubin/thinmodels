@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe PeopleController, :type => :controller do
 
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    FactoryGirl.attributes_for(:person)
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    FactoryGirl.attributes_for(:person, first_name: '')
   }
 
   let(:valid_session) { {} }
@@ -79,14 +79,14 @@ RSpec.describe PeopleController, :type => :controller do
   describe "PUT update" do
     describe "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        FactoryGirl.attributes_for(:person)
       }
 
       it "updates the requested person" do
         person = Person.create! valid_attributes
         put :update, {:id => person.to_param, :person => new_attributes}, valid_session
         person.reload
-        skip("Add assertions for updated state")
+        expect(person.first_name).to eql(new_attributes[:first_name])
       end
 
       it "assigns the requested person as @person" do
