@@ -17,6 +17,9 @@ gem 'jbuilder', '~> 2.0'
 # documentation
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# object forms
+gem 'virtus'
+
 group :development, :test do
   # disable asset pipeline logs
   gem 'quiet_assets'
@@ -24,9 +27,6 @@ group :development, :test do
   # debugging
   gem 'byebug'
   gem 'web-console', '~> 2.0'
-
-  # development optimization
-  #gem 'spring'
 
   # code style
   gem 'rubocop'
