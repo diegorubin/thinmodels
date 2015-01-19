@@ -20,18 +20,14 @@ RSpec.describe Person, :type => :model do
 
   end
 
-  xcontext 'on formatters' do
+  xcontext 'on notify admin' do
 
-    it 'get complete name' do
-      expect(person.complete_name).to(
-        eql("#{person.first_name} #{person.last_name}")
-      )
+    before(:each) do
+      FactoryGirl.create(:person, {role: 0})
     end
 
-    it 'get birthday as string' do
-      expect(person.birthday_str).to(
-        eql(I18n.t(person.birthday, :short))
-      )
+    it 'send message' do
+      expect{person.save}.to change(Message, :count).by(1)
     end
 
   end
