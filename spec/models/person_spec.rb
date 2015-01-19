@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Person, :type => :model do
 
-  context 'on validate' do
+  let(:person) {FactoryGirl.build(:person)}
 
-    let(:person) {FactoryGirl.build(:person)}
+  context 'on validate' do
 
     after(:each) do
       expect(person).to be_invalid
@@ -17,6 +17,22 @@ RSpec.describe Person, :type => :model do
       person.email = 'email invalido'
     end
 
+
+  end
+
+  xcontext 'on formatters' do
+
+    it 'get complete name' do
+      expect(person.complete_name).to(
+        eql("#{person.first_name} #{person.last_name}")
+      )
+    end
+
+    it 'get birthday as string' do
+      expect(person.birthday_str).to(
+        eql(I18n.t(person.birthday, :short))
+      )
+    end
 
   end
 

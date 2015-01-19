@@ -7,6 +7,7 @@ class PeopleController < ApplicationController
   end
 
   def show
+    @person_decorator = PersonDecorator.new(@person)
   end
 
   def new

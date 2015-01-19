@@ -25,6 +25,7 @@ RSpec.describe PeopleController, :type => :controller do
       person = Person.create! valid_attributes
       get :show, {:id => person.to_param}, valid_session
       expect(assigns(:person)).to eq(person)
+      expect(assigns(:person_decorator)).to_not be_nil
     end
   end
 
